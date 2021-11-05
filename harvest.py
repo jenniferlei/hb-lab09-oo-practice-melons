@@ -23,13 +23,17 @@ class MelonType:
     def add_pairing(self, pairing):
         """Add a food pairing to the instance's pairings list."""
 
-        # Fill in the rest
+        self.pairings.append(pairing)
+
+        return self.pairings
 
     def update_code(self, new_code):
         """Replace the reporting code with the new_code."""
 
         # Fill in the rest
 
+crenshaw = MelonType(code="cren", first_harvest=1996, color="green", is_seedless=False, is_bestseller=False, name="Crenshaw")
+crenshaw.add_pairing("prosciutto")
 
 def make_melon_types():
     """Returns a list of current melon types."""
