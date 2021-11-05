@@ -36,11 +36,6 @@ class MelonType:
         return self.new_code
 
 
-# crenshaw = MelonType(code="cren", first_harvest=1996, color="green", is_seedless=False, is_bestseller=False, name="Crenshaw")
-# crenshaw.add_pairing("prosciutto")
-# crenshaw.update_code("shaw")
-
-
 def make_melon_types():
     """Returns a list of current melon types."""
 
@@ -93,8 +88,6 @@ def make_melon_types():
     return all_melon_types
 
 
-print(make_melon_types())
-
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
 
@@ -104,30 +97,25 @@ def print_pairing_info(melon_types):
             print(f"- {pairing}")
 
 melon_types = make_melon_types()
-print_pairing_info(melon_types)
-# crenshaw = MelonType(code="cren", first_harvest=1996, color="green", is_seedless=False, is_bestseller=False, name="Crenshaw")
-# crenshaw.add_pairing("prosciutto")
-# crenshaw.add_pairing("strawberries")
-# crenshaw.update_code("shaw")
-
-# musk = MelonType(
-#     "musk",
-#     "Muskmelon",
-#     1998,
-#     "green",
-#     True,
-#     True
-# )
-# musk.add_pairing("mint")
-
-# melon_types = [crenshaw, musk]
-
 # print_pairing_info(melon_types)
+
 
 def make_melon_type_lookup(melon_types):
     """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
 
-    # Fill in the rest
+    melon_dict = {}
+
+    for melon in melon_types:
+        melon_dict[melon.code] = melon
+    
+    return melon_dict
+
+print(make_melon_type_lookup(melon_types))
+
+# Create a function called make_melon_type_lookup that takes in a list of MelonType objects as an argument, 
+# identical to what make_melon_types returns. 
+# This function should return a dictionary whose keys are reporting codes (as strings) and whose values are 
+# the appropriate melon type instance for that reporting code.
 
 
 ############
