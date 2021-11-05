@@ -35,25 +35,94 @@ class MelonType:
 
         return self.new_code
 
-crenshaw = MelonType(code="cren", first_harvest=1996, color="green", is_seedless=False, is_bestseller=False, name="Crenshaw")
-crenshaw.add_pairing("prosciutto")
-crenshaw.update_code("shaw")
+
+# crenshaw = MelonType(code="cren", first_harvest=1996, color="green", is_seedless=False, is_bestseller=False, name="Crenshaw")
+# crenshaw.add_pairing("prosciutto")
+# crenshaw.update_code("shaw")
+
 
 def make_melon_types():
     """Returns a list of current melon types."""
 
     all_melon_types = []
 
-    # Fill in the rest
+    musk = MelonType(
+        code="musk",
+        first_harvest=1998,
+        color="green",
+        is_seedless=True,
+        is_bestseller=True,
+        name="Muskmelon",
+    )
+
+    casaba = MelonType(
+        code="cas",
+        first_harvest=2003,
+        color="orange",
+        is_seedless=False,
+        is_bestseller=False,
+        name="Casaba"
+    )
+    
+    crenshaw = MelonType(
+        code="cren",
+        first_harvest=1996,
+        color="green",
+        is_seedless=False,
+        is_bestseller=False,
+        name="Crenshaw"
+    )
+
+    yellow_watermelon = MelonType(
+        code="yw", 
+        first_harvest=2013,
+        color="yellow",
+        is_seedless=False,
+        is_bestseller=True,
+        name="Yellow Watermelon"
+    )
+
+    musk.add_pairing("mint")
+    casaba.add_pairing("strawberries")
+    casaba.add_pairing("mint")
+    crenshaw.add_pairing("prosciutto")
+    yellow_watermelon.add_pairing("ice cream")
+
+    all_melon_types.extend([musk, casaba, crenshaw, yellow_watermelon])
 
     return all_melon_types
 
 
+print(make_melon_types())
+
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
 
-    # Fill in the rest
+    for melon in melon_types:
+        print(f"{melon.name} pairs with")
+        for pairing in melon.pairings:
+            print(f"- {pairing}")
 
+melon_types = make_melon_types()
+print_pairing_info(melon_types)
+# crenshaw = MelonType(code="cren", first_harvest=1996, color="green", is_seedless=False, is_bestseller=False, name="Crenshaw")
+# crenshaw.add_pairing("prosciutto")
+# crenshaw.add_pairing("strawberries")
+# crenshaw.update_code("shaw")
+
+# musk = MelonType(
+#     "musk",
+#     "Muskmelon",
+#     1998,
+#     "green",
+#     True,
+#     True
+# )
+# musk.add_pairing("mint")
+
+# melon_types = [crenshaw, musk]
+
+# print_pairing_info(melon_types)
 
 def make_melon_type_lookup(melon_types):
     """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
