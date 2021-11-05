@@ -31,9 +31,9 @@ class MelonType:
     def update_code(self, new_code):
         """Replace the reporting code with the new_code."""
 
-        self.new_code = new_code
+        self.code = new_code
 
-        return self.new_code
+        return self.code
 
 
 def make_melon_types():
@@ -128,6 +128,17 @@ class Melon:
 
     # Fill in the rest
     # Needs __init__ and is_sellable methods
+    def __init__(self, code, shape_rating, color_rating, harvest_field, harvester):
+        """Initialize a melon."""
+
+        self.code = code
+        self.shape_rating = shape_rating
+        self.color_rating = color_rating
+        self.harvest_field = harvest_field
+        self.harvester = harvester
+    
+    def is_sellable(self):
+        pass
 
 
 def make_melons(melon_types):
