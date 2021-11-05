@@ -27,13 +27,17 @@ class MelonType:
 
         return self.pairings
 
+
     def update_code(self, new_code):
         """Replace the reporting code with the new_code."""
 
-        # Fill in the rest
+        self.new_code = new_code
+
+        return self.new_code
 
 crenshaw = MelonType(code="cren", first_harvest=1996, color="green", is_seedless=False, is_bestseller=False, name="Crenshaw")
 crenshaw.add_pairing("prosciutto")
+crenshaw.update_code("shaw")
 
 def make_melon_types():
     """Returns a list of current melon types."""
