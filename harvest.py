@@ -238,4 +238,33 @@ def make_melons(melon_types):
 def get_sellability_report(melons):
     """Given a list of melon object, prints whether each one is sellable."""
 
-    # Fill in the rest
+    # def print_pairing_info(melon_types):
+    # """Prints information about each melon type's pairings."""
+
+    # for melon in melon_types:
+    #     print(f"{melon.name} pairs with")
+    #     for pairing in melon.pairings:
+    #         print(f"- {pairing}")
+    for melon in melons:
+        if melon.is_sellable():
+            print(f"Harvested by {melon.harvester} from field {melon.harvest_field} (CAN BE SOLD)")
+
+        else:
+            print(f"Harvested by {melon.harvester} from field {melon.harvest_field} (NOT SELLABLE)")
+
+melon_types = make_melon_types()
+melons = make_melons(melon_types)
+get_sellability_report(melons)
+
+# melon_type, shape_rating, color_rating, harvest_field, harvester
+
+# Harvested by Sheila from Field 2 (CAN BE SOLD)
+# Harvested by Sheila from Field 2 (NOT SELLABLE)
+# Harvested by Sheila from Field 3 (NOT SELLABLE)
+# Harvested by Sheila from Field 35 (CAN BE SOLD)
+# Harvested by Michael from Field 35 (CAN BE SOLD)
+# Harvested by Michael from Field 35 (NOT SELLABLE)
+# Harvested by Michael from Field 4 (NOT SELLABLE)
+# Harvested by Michael from Field 4 (CAN BE SOLD)
+# Harvested by Michael from Field 3 (NOT SELLABLE)
+
