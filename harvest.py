@@ -252,19 +252,41 @@ def get_sellability_report(melons):
         else:
             print(f"Harvested by {melon.harvester} from field {melon.harvest_field} (NOT SELLABLE)")
 
+# melon_types = make_melon_types()
+# melons = make_melons(melon_types)
+# get_sellability_report(melons)
+
+
+def harvest_melon_log(file_name, melon_types):
+    '''opens and loops over a file, creating a melon object for each line of the file.'''
+
+    melons_by_id = make_melon_type_lookup(melon_types)
+
+    melon_log = open(file_name)
+
+    melons = []
+
+    for line in melon_log:
+        line = line.rstrip().split()
+
+        melon_type = melons_by_id[line[5]]
+        shape_rating = int(line[1])
+        color_rating = int(line[3])
+        harvest_field = int(line[11])
+        harvester = line[8]
+
+        melon = Melon(
+            melon_type=melon_type, 
+            shape_rating=shape_rating, 
+            color_rating=color_rating, 
+            harvest_field=harvest_field, 
+            harvester=harvester
+        )
+
+        melons.append(melon)
+
+    return melons
+
 melon_types = make_melon_types()
-melons = make_melons(melon_types)
-get_sellability_report(melons)
-
-# melon_type, shape_rating, color_rating, harvest_field, harvester
-
-# Harvested by Sheila from Field 2 (CAN BE SOLD)
-# Harvested by Sheila from Field 2 (NOT SELLABLE)
-# Harvested by Sheila from Field 3 (NOT SELLABLE)
-# Harvested by Sheila from Field 35 (CAN BE SOLD)
-# Harvested by Michael from Field 35 (CAN BE SOLD)
-# Harvested by Michael from Field 35 (NOT SELLABLE)
-# Harvested by Michael from Field 4 (NOT SELLABLE)
-# Harvested by Michael from Field 4 (CAN BE SOLD)
-# Harvested by Michael from Field 3 (NOT SELLABLE)
-
+file_name = "harvest_log.txt"
+print(harvest_melon_log(file_name, melon_types))
